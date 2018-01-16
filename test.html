@@ -1,10 +1,970 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!--
+	=====================================================================
+	//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+	//* (주)미르테크
+	//* Program Name : SLIMA - NET  plus
+	//* Homepage : http://www.mirtech.co.kr , Tel : 02-522-1280  , Technical contact : sjlee@mirtech.co.kr
+	//* Copyright (c) 1994-2018 Mirtech, Inc.  All rights reserved.
+	//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+	=====================================================================
+	-->
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ko" xml:lang="ko"><head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <title> 아주대학교 의학문헌정보센터 </title>
 </head>
-<body>
 
-</body>
+<frameset rows="100%" frameborder="0" framespacing="0" border="0">
+    <frame src="./SlimaPlus.csp?HLOC=AMIMC&amp;COUNT=25f2I45z00&amp;Kor=1" title="SLIMAplus" name="SLIMAplus">
+    <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><!--
+	=====================================================================
+	//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+	//* (주)미르테크
+	//* Program Name : SLIMA - NET  plus
+	//* Homepage : http://www.mirtech.co.kr , Tel : 02-522-1280  , Technical contact : sjlee@mirtech.co.kr
+	//* Copyright (c) 1994-2018 Mirtech, Inc.  All rights reserved.
+	//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+	=====================================================================
+	--><html xmlns="http://www.w3.org/1999/xhtml" lang="ko" xml:lang="ko"><head>
+    <title> 아주대학교 의학문헌정보센터 </title>
+
+</head><body><csp:class private="0" encoded="0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="content-language" content="ko-KR">
+    <meta http-equiv="pragma" content="no-cache">
+    <meta http-equiv="cache-control" content="no-cache">
+    <!--<meta http-equiv="X-UA-Compatible" content="IE=edge" />--><!-- 호환성 맞춤 -->
+    <script language="javascript" type="text/javascript" src="/AMIMC/share/js/plus_Common.js?20090507" charset="utf-8"></script><noscript></noscript>
+    <script language="javascript" type="text/javascript" src="/AMIMC/share/js/plus_jquery-1.11.2.min.js" charset="utf-8"></script><noscript></noscript>
+    <script language="javascript" type="text/javascript" src="/AMIMC/share/js/plus_CalendarDateInput.js?20090507" charset="utf-8"></script><style>
+    td.calendarDateInput {letter-spacing:normal;line-height:normal;font-family:Dotum,Sans-Serif;font-size:13px;}
+    select.calendarDateInput {letter-spacing:.06em;font-family:Verdana,Sans-Serif;font-size:11px;}
+    input.calendarDateInput {letter-spacing:.06em;font-family:Verdana,Sans-Serif;font-size:11px;}
+</style>
+    <noscript></noscript>
+    <script language="javascript" type="text/javascript" src="/AMIMC/share/js/plus_DragDropPress.js?20090507" charset="utf-8"></script><noscript></noscript>
+    <script language="javascript">
+    </script>
+
+    <link rel="stylesheet" type="text/css" title="css" href="/AMIMC/share/css/kr/plus_style_main.css">
+    <link rel="stylesheet" type="text/css" title="css" href="/AMIMC/share/css/kr/plus_style_common.css">
+    <link rel="stylesheet" type="text/css" title="css" href="/AMIMC/share/css/kr/plus_style_font.css">
+
+
+
+
+
+
+    <script type="text/javascript" language="javascript">
+
+        <!--
+        // 빠른검색
+        function DataSearchQ() {
+            if(document.SearchQ.SrchKey01.value=='')  {
+                alert('검색어를 입력하십시오.');
+                return false;
+            }
+
+            if (document.SearchQ.SrchKey01.value.indexOf("'")!= -1) {
+                var cleanstr=document.SearchQ.SrchKey01.value;
+                while(cleanstr.indexOf("'")>=0 ) {
+                    // ""에서 " "으로 변경
+                    cleanstr=cleanstr.replace("'"," ");
+                }
+                document.SearchQ.SrchKey01.value=cleanstr;
+            }
+            return true;
+        }
+
+        // PubMed검색
+        function PubmedSearch(cmd) {
+            var frm = document.PubSearch;
+            if(frm.term.value=='')  {
+                alert('검색어를 입력하십시오.');
+                return false;
+            }
+
+            window.open("","pubmedpop","width=1024,height=768,toolbar=yes,location=yes,directories=yes,status=yes,menubar=yes,scrollbars=yes,resizable=yes");
+            frm.target='pubmedpop';
+            frm.action = "http://medlib.ajou.ac.kr/AMIMC/Login/sso/LoginProxySSO.csp?goURL=pubmed"
+            //2016.02.15 HSH 메인 PubMed 검색시에도 교외접속처리되도록 처리
+            //frm.action = "http://www.ncbi.nlm.nih.gov/entrez/query.fcgi?holding=ikremclib"
+            //return true;
+        }
+
+        //통합검색 셀렉트 박스 스타일 적용
+        function changeSearchCate(obj, kor){
+            var sTypeLIst = document.getElementById("selOpenClose");
+            sTypeLIst.style.display="none";
+
+            var text="";
+            var select01="dd";
+
+            if (kor = 2) {
+                var Lang = "en";
+            }
+            else {
+                var Lang = "kr";
+            }
+
+            if ( obj == 'T0' ){
+                backgorundUrl = 'url(./Images/kr/Main/search_select.gif)';
+            }else if ( obj == 'A0' ){
+                backgorundUrl = 'url(./Images/kr/Main/search_select2.gif)';
+            }else if ( obj == 'P0' ){
+                backgorundUrl = 'url(./Images/kr/Main/search_select3.gif)';
+            }
+
+            document.getElementById("sType").style.backgroundImage = backgorundUrl;
+            document.SearchQ.SrchType01.value = obj; // 검색조건 값 넘겨줌
+            document.SearchQ.SrchKey01.focus();
+        }
+
+        // 인기검색어 검색 연결
+        function SearchQR(qtype,qkey) {
+            //검색항목(SrchType01)은 'T0, A0 ,P0'만 있는데, 인기검색어의 경우 'G0, S0 ...'등이 있어서 QSrchType01라는 변수 추가
+            document.SearchQ.QSrchType01.value=qtype;
+            document.SearchQ.SrchKey01.value=qkey;
+            document.SearchQ.submit();
+        }
+
+
+        // 이벤트 발생 시 히든 상태면 보이고, 보이는 상태이면 히든
+        function divShowHidden(divName){
+            if(document.getElementById(divName).style.display == 'block'){
+                document.getElementById(divName).style.display = 'none';
+                for (i=0;i<intSelect.length;i++){intSelect[i].style.display = "";}
+            }else{
+                document.getElementById(divName).style.display = 'block';
+                for (i=0;i<intSelect.length;i++){intSelect[i].style.display = "none";}
+            }
+        }
+        //-->
+    </script><noscript></noscript>
+
+    <script type="text/javascript" language="javascript">
+        //  best_keyword_cloud 보기 innerHTML 용
+        function Show_BestKeywordCloud(num) {
+            var layerid = document.getElementById('best_keyword_cloud');
+            if (layerid.style.display == 'block') {
+                layerid.style.display = 'none';
+                var displaydata = "";
+            }
+            else {
+                layerid.style.display = 'block';
+                var displaydata = cspHttpServerMethod('uVps3dWDCE2L1eOOzx4CtUHmQ57U6wSMmnfVfKWsQH8UCti6T3qoo$0_HzdcrHKH',num);
+            }
+            layerid.innerHTML = displaydata;
+        }
+    </script><noscript></noscript>
+
+    <script language="javascript" type="text/javascript" src="/AMIMC/share/js/plus_Main.js?20110627" charset="utf-8"></script><noscript></noscript>
+
+    <script language="javascript" type="text/javascript" src="/AMIMC/share/js/plus_SearchQuickAuto.js?20090630" charset="utf-8" defer="defer"></script><noscript></noscript>
+    <script language="javascript" type="text/javascript" src="/AMIMC/share/js/plus_Embed_Swf.js?20081125" charset="utf-8"></script><noscript></noscript>
+
+
+
+    <script language="Javascript">
+        // onLoad
+        window.onload = function () {
+            // 검색어 자동완성
+            AutoCompletion_Initialize("SrchKey");
+            // 검색창에 커서가 위치하면서 팝업공지사항이 아래로 바로 내려감. 필요시 오픈하세요.
+            // 아래 주석처리 빠른검색 영역에 커서 위치하지 않게 하여, 팝업공지 창 위로 뜨게 함 = 20100901 kangsh
+            //document.SearchQ.SrchKey01.focus();
+            //
+            //'IE6.0' 이하인 경우, 안내문구 표시. - 2011.10.18.주정임
+            //Ie6DivPopup("Ie6Warning");
+        }
+    </script>
+
+
+    <style type="text/css">
+
+    </style>
+
+
+
+
+    <noscript></noscript>
+
+    <script language="JavaScript" type="text/javascript" src="/csp/broker/cspxmlhttp.js"></script><script language="JavaScript" type="text/javascript" src="/csp/broker/cspbroker.js"></script>
+
+
+
+
+    <!-- body-wrap 시작 =========================================================================================================-->
+    <div id="body-wrap">
+        <!-- header 시작 =========================================================================================================-->
+        <div id="header">
+            <!-- header_menu_top 시작 =========================================================== -->
+            <div id="header_menu_top">
+                <ul>
+                    <li class="header_menu_logbg"><a href="/AMIMC/Login/Login.csp">로그인</a></li>
+
+                    <li><a href="http://library.ajou.ac.kr/index.ax" target="_blank">중앙도서관　|</a></li>
+                    <li><a href="http://ts.ajoumc.or.kr/Main/MainType08.aspx?cp=1&amp;sid=&amp;rc=10&amp;ssc=0010&amp;ssgc=UH&amp;CCP=1" target="_blank">의과대학　|</a></li>
+                    <li><a href="http://ts.ajoumc.or.kr/Main/MainType07.aspx?cp=1&amp;sid=&amp;rc=10&amp;ssc=0007&amp;ssgc=UH&amp;CCP=1" target="_blank">간호대학　|</a></li>
+                    <li><a href="/AMIMC/Login/sso/LoginCSDLSSO.csp" target="_blank">CSDL　|</a></li>
+                    <li><a href="/AMIMC/Info/SiteMap.csp?HLOC=AMIMC&amp;COUNT=25f2I45z00&amp;Kor=1">SITEMAP</a></li>
+
+                    <li class="header_menu_language01"><a href="/AMIMC/SlimaDLko.csp" target="_self">KOR</a></li>
+                    <!-- 2016.01.05 HSH 기관요청으로 영문홈페이지 준비중으로 수정-->
+                    <li class="header_menu_language02"><a href="/AMIMC/SlimaDLen.csp" target="_self">ENG</a></li>
+
+                </ul>
+            </div>
+            <!-- header_menu_top 끝   =========================================================== -->
+
+            <!-- header_logo 시작     =========================================================== -->
+
+            <div id="header_logo">
+                <a href="/AMIMC"><img src="/AMIMC/Images/kr/TMenu/logo.gif" alt=" 아주대학교 의학문헌정보센터"></a>
+
+            </div>
+            <!-- header_logo 끝       =========================================================== -->
+
+
+
+            <!-- header_menu 시작     =========================================================== -->
+            <!-- 드롭메뉴 -->
+            <div id="header_menu2">
+                <ul>
+                    <li class="none"><a href="/AMIMC/Search/Search.csp?Gate=DA&amp;HLOC=AMIMC&amp;COUNT=25f2I45z00&amp;Kor=1" onblur="MM_swapImgRestore(); Hide_Layer('header_menu_sub1');" onmouseout="MM_swapImgRestore(); Hide_Layer('header_menu_sub1');" onfocus="MM_swapImage(); Show_Layer('header_menu_sub1');" onmouseover="MM_swapImage(); Show_Layer('header_menu_sub1'); ">자료검색</a></li>
+                    <li class="none2"><a href="/AMIMC/MyPage/Lend/LnReport.csp?HLOC=AMIMC&amp;COUNT=25f2I45z00&amp;Kor=1" onblur="MM_swapImgRestore(); Hide_Layer('header_menu_sub2');" onmouseout="MM_swapImgRestore(); Hide_Layer('header_menu_sub2');" onfocus="MM_swapImage(); Show_Layer('header_menu_sub2');" onmouseover="MM_swapImage(); Show_Layer('header_menu_sub2'); ">내 도서관 관리</a></li>
+                    <li class="none3"><a href="/AMIMC/community/sc.csp?sccode=notice&amp;HLOC=AMIMC&amp;COUNT=25f2I45z00&amp;Kor=1" onblur="MM_swapImgRestore(); Hide_Layer('header_menu_sub3');" onmouseout="MM_swapImgRestore(); Hide_Layer('header_menu_sub3');" onfocus="MM_swapImage(); Show_Layer('header_menu_sub3');" onmouseover="MM_swapImage(); Show_Layer('header_menu_sub3'); ">커뮤니티</a></li>
+                    <li class="none4"><a href="/AMIMC/Info/Intro/LibraryGuide.csp?HLOC=AMIMC&amp;COUNT=25f2I45z00&amp;Kor=1" onblur="MM_swapImgRestore(); Hide_Layer('header_menu_sub4');" onmouseout="MM_swapImgRestore(); Hide_Layer('header_menu_sub4');" onfocus="MM_swapImage(); Show_Layer('header_menu_sub4');" onmouseover="MM_swapImage(); Show_Layer('header_menu_sub4'); ">이용안내</a></li>
+                    <li class="none5"><a href="/AMIMC/Info/Intro/Generalstatus.csp?HLOC=AMIMC&amp;COUNT=25f2I45z00&amp;Kor=1" onblur="MM_swapImgRestore(); Hide_Layer('header_menu_sub5');" onmouseout="MM_swapImgRestore(); Hide_Layer('header_menu_sub5');" onfocus="MM_swapImage(); Show_Layer('header_menu_sub5');" onmouseover="MM_swapImage(); Show_Layer('header_menu_sub5'); ">센터소개</a></li>
+                </ul>
+            </div>
+
+            <!-- 전체메뉴 -->
+            <div class="header_menu_all" onclick="ShowHide_Layer('header_menu_sub')">
+                <img src="/AMIMC/Images/kr/Main/btn_bottom.png" alt="아래로">
+            </div>
+            <!-- header_menu 끝       =========================================================== -->
+
+
+
+            <!-- header_menu_sub 시작 ================================================================ -->
+
+            <!-- 드롭메뉴 =====================================================================================-->
+            <!-- header_menu_sub1 -->
+            <div id="header_menu_sub1" onmouseover="Show_Layer('header_menu_sub1');" onmouseout="Hide_Layer('header_menu_sub1'); MM_swapImgRestore();" onblur="Hide_Layer('header_menu_sub1'); MM_swapImgRestore();" style="display: none;">
+                <div class="HideSelectDIV">
+                    <ul id="menu_sub1">
+
+                        <li><a href="/AMIMC/Search/Search.csp?Gate=DA&amp;HLOC=AMIMC&amp;COUNT=25f2I45z00&amp;Kor=1">
+                            통합검색</a></li>
+                        <li><a href="/AMIMC/Search/SearchA.csp?Gate=DB&amp;HLOC=AMIMC&amp;COUNT=25f2I45z00&amp;Kor=1">
+                            단행본</a></li>
+                        <li><a href="/AMIMC/Search/SearchA.csp?Gate=DL&amp;HLOC=AMIMC&amp;COUNT=25f2I45z00&amp;Kor=1">
+                            학술지</a></li>
+                        <li><a href="/AMIMC/BrowseList/ListEJ/ListEJSrch.csp?HLOC=AMIMC&amp;COUNT=25f2I45z00&amp;Kor=1">
+                            E-Journal</a></li>
+                        <li><a href="/AMIMC/Search/SearchA.csp?Gate=DW&amp;HLOC=AMIMC&amp;COUNT=25f2I45z00&amp;Kor=1">
+                            E-Book</a></li>
+                        <!--<li><a href="/AMIMC/BrowseList/ListDB/ListDBSrch.csp?HLOC=AMIMC&COUNT=25f2I45z00&Kor=1">-->
+                        <li><a href="/AMIMC/BrowseList/ListDB/ListDBpub.csp?HLOC=AMIMC&amp;COUNT=25f2I45z00&amp;Kor=1">
+                            Database</a></li>
+                        <li class="last"><a href="/AMIMC/Search/SearchA.csp?Gate=OB&amp;HLOC=AMIMC&amp;COUNT=25f2I45z00&amp;Kor=1">
+                            사료</a></li>
+                        <!--
+                        <li><a href="/AMIMC/Search/SearchA.csp?Gate=DL&HLOC=AMIMC&COUNT=25f2I45z00&Kor=1">
+                        연속간행물</a></li>
+                        <li><a href="/AMIMC/Search/SearchA.csp?Gate=DT&HLOC=AMIMC&COUNT=25f2I45z00&Kor=1">
+                        학위논문</a></li>
+                        <li><a href="/AMIMC/Search/SearchA.csp?Gate=DM&HLOC=AMIMC&COUNT=25f2I45z00&Kor=1">
+                        멀티미디어</a></li>
+                        <li><a href="/AMIMC/Search/SearchA.csp?Gate=DW&HLOC=AMIMC&COUNT=25f2I45z00&Kor=1">
+                        웹정보원</a></li>
+                        <li><a href="/AMIMC/Search/SearchA.csp?Gate=OB&HLOC=AMIMC&COUNT=25f2I45z00&Kor=1">
+                        고서</a></li>
+                        <li><a href="/AMIMC/Search/SearchS.csp?Gate=DS&HLOC=AMIMC&COUNT=25f2I45z00&Kor=1">
+                        기사(목차)</a></li>
+                        <li class='last'><a href="/AMIMC/BrowseList/ListKw.csp?New=0&HLOC=AMIMC&COUNT=25f2I45z00&Kor=1">
+                        색인어브라우징</a></li>
+                        -->
+
+
+                    </ul>
+                </div>
+            </div>
+
+            <!--header_menu_sub2 -->
+            <div id="header_menu_sub2" onmouseover="Show_Layer('header_menu_sub2');" onmouseout="Hide_Layer('header_menu_sub2'); MM_swapImgRestore();" onblur="Hide_Layer('header_menu_sub2'); MM_swapImgRestore();" style="display: none;">
+                <div class="HideSelectDIV">
+                    <ul id="menu_sub2">
+
+                        <!--<li><a style="color:#ea6738;" href="/AMIMC/MyPage/MyWidget/Widget.csp?HLOC=AMIMC&COUNT=25f2I45z00&Kor=1">
+                        나의 위젯</a></li>-->
+                        <li><a href="/AMIMC/MyPage/Lend/LnReport.csp?HLOC=AMIMC&amp;COUNT=25f2I45z00&amp;Kor=1">
+                            대출현황 조회 / 갱신</a></li>
+                        <li><a href="/AMIMC/Request/Purchase/PurchaseIntro.csp?HLOC=AMIMC&amp;COUNT=25f2I45z00&amp;Kor=1">
+                            도서구입 신청</a></li>
+                        <li><a href="/AMIMC/Request/FullText/CopysIntro.csp?HLOC=AMIMC&amp;COUNT=25f2I45z00&amp;Kor=1">
+                            원문복사 신청</a></li>
+                        <li><a href="/AMIMC/community/skin/default/thesisproofapply/ThesisproofapplyIntro.csp">
+                            논문교정 신청</a></li>
+
+
+                        <li class="last"><a href="/AMIMC/MyPage/MyKMS/MyBasketList.csp?HLOC=AMIMC&amp;COUNT=25f2I45z00&amp;Kor=1">
+                            즐겨찾기</a></li>
+                        <!--
+                        <li><a href="/AMIMC/MyPage/MyKMS/MyNotice.csp?HLOC=AMIMC&COUNT=25f2I45z00&Kor=1">
+                        개인공지사항</a></li>
+                        <li><a href="/AMIMC/MyPage/Register/RgLogin.csp?HLOC=AMIMC&COUNT=25f2I45z00&Kor=1">
+                        개인정보관리</a></li>
+                        <li><a style="color:#ea6738;" href="/AMIMC/MyPage/MyKMS/MyFolder.csp?HLOC=AMIMC&COUNT=25f2I45z00&Kor=1">
+                        개인지식관리</a></li>
+                        <li><a style="color:#ea6738;"  href="/AMIMC/MyPage/MyPoint/Point.csp?HLOC=AMIMC&COUNT=25f2I45z00&Kor=1">
+                        개인지식포인트</a></li>
+                        <li><a href="/AMIMC/MyPage/MyKMS/MyBasketList.csp?HLOC=AMIMC&COUNT=25f2I45z00&Kor=1">
+                        바구니보기</a></li>
+                        <li class='last'><a href="/AMIMC/Search/SearchHistory.csp?HLOC=AMIMC&COUNT=25f2I45z00&Kor=1">
+                        검색 History</a></li>
+                        -->
+
+
+                    </ul>
+                </div>
+            </div>
+
+            <!--header_menu_sub3 -->
+            <div id="header_menu_sub3" onmouseover="Show_Layer('header_menu_sub3');" onmouseout="Hide_Layer('header_menu_sub3'); MM_swapImgRestore();" onblur="Hide_Layer('header_menu_sub3'); MM_swapImgRestore();">
+                <div class="HideSelectDIV">
+                    <ul id="menu_sub3">
+
+                        <li><a href="/AMIMC/community/sc.csp?sccode=notice&amp;HLOC=AMIMC&amp;COUNT=25f2I45z00&amp;Kor=1">
+                            공지사항</a></li>
+                        <li><a href="/AMIMC/community/sc.csp?sccode=faq&amp;HLOC=AMIMC&amp;COUNT=25f2I45z00&amp;Kor=1">
+                            FAQ</a></li>
+                        <li><a href="/AMIMC/community/sc.csp?sccode=qna&amp;HLOC=AMIMC&amp;COUNT=25f2I45z00&amp;Kor=1">
+                            Q&amp;A</a></li>
+                        <li><a href="/AMIMC/community/sc.csp?sccode=dataroom&amp;HLOC=AMIMC&amp;COUNT=25f2I45z00&amp;Kor=1">
+                            자료실</a></li>
+                        <!--<li><a href="/AMIMC/community/sc.csp?sccode=endnote&HLOC=AMIMC&COUNT=25f2I45z00&Kor=1">
+                        EndNote Output Style</a></li>-->
+                        <!--
+                        <li><a href="/AMIMC/community/sc.csp?sccode=integrationboard&HLOC=AMIMC&COUNT=25f2I45z00&Kor=1">
+                        통합게시판</a></li>
+                        -->
+                        <li><a href="/AMIMC/Common/PollNew/PollList.csp?HLOC=AMIMC&amp;COUNT=25f2I45z00&amp;Kor=1">
+                            설문조사</a></li>
+                        <li><a href="/AMIMC/community/view.csp?sccode=newsletter&amp;HLOC=AMIMC&amp;COUNT=25f2I45z00&amp;Kor=1">
+                            뉴스레터</a></li>
+                        <!-- 2016.12.16 HSH 기관요청으로 포스터자료실 추가
+                            2016.12.27 HSH 기관요청으로 메디컬 일러스트 추가 -->
+                        <li><a href="/AMIMC/Etc/poster/PosterInfo.csp">
+                            포스터 자료실</a></li>
+                        <li class="last"><a href="/AMIMC/Etc/Medicalillustration.csp">
+                            메디컬 일러스트</a></li>
+                        <!--
+                        <li><a href="/AMIMC/community/sc.csp?sccode=notice&HLOC=AMIMC&COUNT=25f2I45z00&Kor=1">
+                        전체공지사항</a></li>
+                        <li><a href="/AMIMC/community/sc.csp?sccode=faq&HLOC=AMIMC&COUNT=25f2I45z00&Kor=1">
+                        자주하는 질문</a></li>
+                        <li><a href="/AMIMC/community/sc.csp?sccode=qna&HLOC=AMIMC&COUNT=25f2I45z00&Kor=1">
+                        묻고답하기</a></li>
+                        <li><a href="/AMIMC/community/sc.csp?sccode=dataroom&HLOC=AMIMC&COUNT=25f2I45z00&Kor=1">
+                        자료실</a></li>
+                        <li><a href="/AMIMC/community/sc.csp?sccode=review&HLOC=AMIMC&COUNT=25f2I45z00&Kor=1">
+                        서평쓰기</a></li>
+                        <li><a href="/AMIMC/Common/PollNew/PollList.csp?HLOC=AMIMC&COUNT=25f2I45z00&Kor=1">
+                        설문조사</a></li>
+                        <li><a style="color:#ea6738;" href="/AMIMC/community/skin/book/lose/IntroLose.csp?HLOC=AMIMC&COUNT=25f2I45z00&Kor=1">
+                        소재불명도서신고</a></li>
+                        <li><a style="color:#ea6738;" href="/AMIMC/community/skin/book/delivery/IntroDelivery.csp?HLOC=AMIMC&COUNT=25f2I45z00&Kor=1">
+                        도서배달서비스</a></li>
+                        <li><a style="color:#ea6738;" href="/AMIMC/community/skin/slimaplus/locker/IntroLocker.csp?HLOC=AMIMC&COUNT=25f2I45z00&Kor=1">
+                        사물함신청</a></li>
+                        <li><a style="color:#ea6738;" href="/AMIMC/Common/LibQNA/QNAMore.csp?HLOC=AMIMC&COUNT=25f2I45z00&Kor=1">
+                        사서에게 물어보기</a></li>
+                        <li><a style="color:#ea6738;" href="/AMIMC/community/sc.csp?sccode=photo&HLOC=AMIMC&COUNT=25f2I45z00&Kor=1">
+                        포토갤러리</a></li>
+                        <li class='last'><a href="/AMIMC/Etc/banner.csp?HLOC=AMIMC&COUNT=25f2I45z00&Kor=1">
+                        배너</a></li>
+                        -->
+
+
+                    </ul>
+                </div>
+            </div>
+
+            <!--header_menu_sub4 -->
+            <div id="header_menu_sub4" onmouseover="Show_Layer('header_menu_sub4');" onmouseout="Hide_Layer('header_menu_sub4'); MM_swapImgRestore();" onblur="Hide_Layer('header_menu_sub4'); MM_swapImgRestore();">
+                <div class="HideSelectDIV">
+                    <ul id="menu_sub4">
+
+                        <li><a href="/AMIMC/Info/Intro/LibraryGuide.csp?HLOC=AMIMC&amp;COUNT=25f2I45z00&amp;Kor=1">
+                            센터 이용안내</a></li>
+                        <li class="last"><a href="/AMIMC/Info/Intro/ServiceGuide.csp?HLOC=AMIMC&amp;COUNT=25f2I45z00&amp;Kor=1">
+                            제공서비스 안내</a></li>
+                        <!-- 사용하지 않는 메뉴입니다.
+                        <li><a href="/AMIMC/MyPage/Email/ETitleIntro.csp?HLOC=AMIMC&COUNT=25f2I45z00&Kor=1">
+                        목차서비스</a></li>
+                        <li><a style="color:#ea6738;" href="/AMIMC/Request/Thesis/TMain.csp?HLOC=AMIMC&COUNT=25f2I45z00&Kor=1">
+                        학위논문등록</a></li>
+                        <li><a style="color:#ea6738;" href="/AMIMC/Request/Perusal/PrsIntro.csp?HLOC=AMIMC&COUNT=25f2I45z00&Kor=1">
+                        타교열람의뢰</a></li>
+                        <li><a style="color:#ea6738;" href="/AMIMC/Request/Educate/EdMain.csp?HLOC=AMIMC&COUNT=25f2I45z00&Kor=1">
+                        이용자 교육신청</a></li>
+                        <li><a style="color:#ea6738;" href="/AMIMC/community/skin/book/priority/IntroPriority.csp?HLOC=AMIMC&COUNT=25f2I45z00&Kor=1">
+                        우선정리요청</a></li>
+                        <li><a style="color:#ea6738;" href="/AMIMC/MyPage/TableRv/TbRvReport.csp?HLOC=AMIMC&COUNT=25f2I45z00&Kor=1">
+                        디지털자료실 예약</a></li>
+                        <li><a style="color:#ea6738;" href="/AMIMC/Request/Room/RmMWD.csp?Gate=3&HLOC=AMIMC&COUNT=25f2I45z00&Kor=1">
+                        세미나실 이용신청</a></li>
+                        <li class='last'><a href="/AMIMC/rss/Service/InfoRss.csp?HLOC=AMIMC&COUNT=25f2I45z00&Kor=1">
+                        RSS서비스</a></li>
+                        -->
+
+
+                    </ul>
+                </div>
+            </div>
+
+            <!--header_menu_sub5 -->
+            <div id="header_menu_sub5" onmouseover="Show_Layer('header_menu_sub5');" onmouseout="Hide_Layer('header_menu_sub5'); MM_swapImgRestore();" onblur="Hide_Layer('header_menu_sub5'); MM_swapImgRestore();">
+                <div class="HideSelectDIV">
+                    <ul id="menu_sub5">
+
+                        <li><a href="/AMIMC/Info/Intro/Generalstatus.csp?HLOC=AMIMC&amp;COUNT=25f2I45z00&amp;Kor=1">
+                            일반현황</a></li>
+                        <li><a href="/AMIMC/Info/Intro/Intro.csp?HLOC=AMIMC&amp;COUNT=25f2I45z00&amp;Kor=1">
+                            연혁</a></li>
+                        <li><a href="/AMIMC/Info/Intro/Intro3.csp?HLOC=AMIMC&amp;COUNT=25f2I45z00&amp;Kor=1">
+                            조직도 / 담당자 안내</a></li>
+                        <li class="last"><a href="/AMIMC/Info/Intro/Intro4.csp?HLOC=AMIMC&amp;COUNT=25f2I45z00&amp;Kor=1">
+                            찾아오시는 길</a></li>
+
+
+                    </ul>
+                </div>
+            </div>
+
+
+            <!-- 전체메뉴 =====================================================================================-->
+            <div id="header_menu_sub">
+                <div style="display:block; margin: 0 auto;  width: 990px;">
+                    <iframe id="HideSelectIFRAME" style="position: absolute; z-index:1;" scrolling="no" frameborder="0" title="HideSelectIFRAME"></iframe>
+                    <div id="HideSelectDIV" style="position: absolute; z-index:3; border-bottom: 2px solid #005bac;">
+                        <ul id="menu_sub1">
+
+                            <li><a href="/AMIMC/Search/Search.csp?Gate=DA&amp;HLOC=AMIMC&amp;COUNT=25f2I45z00&amp;Kor=1">
+                                통합검색</a></li>
+                            <li><a href="/AMIMC/Search/SearchA.csp?Gate=DB&amp;HLOC=AMIMC&amp;COUNT=25f2I45z00&amp;Kor=1">
+                                단행본</a></li>
+                            <li><a href="/AMIMC/Search/SearchA.csp?Gate=DL&amp;HLOC=AMIMC&amp;COUNT=25f2I45z00&amp;Kor=1">
+                                학술지</a></li>
+                            <li><a href="/AMIMC/BrowseList/ListEJ/ListEJSrch.csp?HLOC=AMIMC&amp;COUNT=25f2I45z00&amp;Kor=1">
+                                E-Journal</a></li>
+                            <li><a href="/AMIMC/Search/SearchA.csp?Gate=DW&amp;HLOC=AMIMC&amp;COUNT=25f2I45z00&amp;Kor=1">
+                                E-Book</a></li>
+                            <!--<li><a href="/AMIMC/BrowseList/ListDB/ListDBSrch.csp?HLOC=AMIMC&COUNT=25f2I45z00&Kor=1">-->
+                            <li><a href="/AMIMC/BrowseList/ListDB/ListDBpub.csp?HLOC=AMIMC&amp;COUNT=25f2I45z00&amp;Kor=1">
+                                Database</a></li>
+                            <li class="last"><a href="/AMIMC/Search/SearchA.csp?Gate=OB&amp;HLOC=AMIMC&amp;COUNT=25f2I45z00&amp;Kor=1">
+                                사료</a></li>
+                            <!--
+                            <li><a href="/AMIMC/Search/SearchA.csp?Gate=DL&HLOC=AMIMC&COUNT=25f2I45z00&Kor=1">
+                            연속간행물</a></li>
+                            <li><a href="/AMIMC/Search/SearchA.csp?Gate=DT&HLOC=AMIMC&COUNT=25f2I45z00&Kor=1">
+                            학위논문</a></li>
+                            <li><a href="/AMIMC/Search/SearchA.csp?Gate=DM&HLOC=AMIMC&COUNT=25f2I45z00&Kor=1">
+                            멀티미디어</a></li>
+                            <li><a href="/AMIMC/Search/SearchA.csp?Gate=DW&HLOC=AMIMC&COUNT=25f2I45z00&Kor=1">
+                            웹정보원</a></li>
+                            <li><a href="/AMIMC/Search/SearchA.csp?Gate=OB&HLOC=AMIMC&COUNT=25f2I45z00&Kor=1">
+                            고서</a></li>
+                            <li><a href="/AMIMC/Search/SearchS.csp?Gate=DS&HLOC=AMIMC&COUNT=25f2I45z00&Kor=1">
+                            기사(목차)</a></li>
+                            <li class='last'><a href="/AMIMC/BrowseList/ListKw.csp?New=0&HLOC=AMIMC&COUNT=25f2I45z00&Kor=1">
+                            색인어브라우징</a></li>
+                            -->
+
+
+                        </ul>
+
+                        <ul id="menu_sub2">
+
+                            <!--<li><a style="color:#ea6738;" href="/AMIMC/MyPage/MyWidget/Widget.csp?HLOC=AMIMC&COUNT=25f2I45z00&Kor=1">
+                            나의 위젯</a></li>-->
+                            <li><a href="/AMIMC/MyPage/Lend/LnReport.csp?HLOC=AMIMC&amp;COUNT=25f2I45z00&amp;Kor=1">
+                                대출현황 조회 / 갱신</a></li>
+                            <li><a href="/AMIMC/Request/Purchase/PurchaseIntro.csp?HLOC=AMIMC&amp;COUNT=25f2I45z00&amp;Kor=1">
+                                도서구입 신청</a></li>
+                            <li><a href="/AMIMC/Request/FullText/CopysIntro.csp?HLOC=AMIMC&amp;COUNT=25f2I45z00&amp;Kor=1">
+                                원문복사 신청</a></li>
+                            <li><a href="/AMIMC/community/skin/default/thesisproofapply/ThesisproofapplyIntro.csp">
+                                논문교정 신청</a></li>
+
+
+                            <li class="last"><a href="/AMIMC/MyPage/MyKMS/MyBasketList.csp?HLOC=AMIMC&amp;COUNT=25f2I45z00&amp;Kor=1">
+                                즐겨찾기</a></li>
+                            <!--
+                            <li><a href="/AMIMC/MyPage/MyKMS/MyNotice.csp?HLOC=AMIMC&COUNT=25f2I45z00&Kor=1">
+                            개인공지사항</a></li>
+                            <li><a href="/AMIMC/MyPage/Register/RgLogin.csp?HLOC=AMIMC&COUNT=25f2I45z00&Kor=1">
+                            개인정보관리</a></li>
+                            <li><a style="color:#ea6738;" href="/AMIMC/MyPage/MyKMS/MyFolder.csp?HLOC=AMIMC&COUNT=25f2I45z00&Kor=1">
+                            개인지식관리</a></li>
+                            <li><a style="color:#ea6738;"  href="/AMIMC/MyPage/MyPoint/Point.csp?HLOC=AMIMC&COUNT=25f2I45z00&Kor=1">
+                            개인지식포인트</a></li>
+                            <li><a href="/AMIMC/MyPage/MyKMS/MyBasketList.csp?HLOC=AMIMC&COUNT=25f2I45z00&Kor=1">
+                            바구니보기</a></li>
+                            <li class='last'><a href="/AMIMC/Search/SearchHistory.csp?HLOC=AMIMC&COUNT=25f2I45z00&Kor=1">
+                            검색 History</a></li>
+                            -->
+
+
+                        </ul>
+
+                        <ul id="menu_sub3">
+
+                            <li><a href="/AMIMC/community/sc.csp?sccode=notice&amp;HLOC=AMIMC&amp;COUNT=25f2I45z00&amp;Kor=1">
+                                공지사항</a></li>
+                            <li><a href="/AMIMC/community/sc.csp?sccode=faq&amp;HLOC=AMIMC&amp;COUNT=25f2I45z00&amp;Kor=1">
+                                FAQ</a></li>
+                            <li><a href="/AMIMC/community/sc.csp?sccode=qna&amp;HLOC=AMIMC&amp;COUNT=25f2I45z00&amp;Kor=1">
+                                Q&amp;A</a></li>
+                            <li><a href="/AMIMC/community/sc.csp?sccode=dataroom&amp;HLOC=AMIMC&amp;COUNT=25f2I45z00&amp;Kor=1">
+                                자료실</a></li>
+                            <!--<li><a href="/AMIMC/community/sc.csp?sccode=endnote&HLOC=AMIMC&COUNT=25f2I45z00&Kor=1">
+                            EndNote Output Style</a></li>-->
+                            <!--
+                            <li><a href="/AMIMC/community/sc.csp?sccode=integrationboard&HLOC=AMIMC&COUNT=25f2I45z00&Kor=1">
+                            통합게시판</a></li>
+                            -->
+                            <li><a href="/AMIMC/Common/PollNew/PollList.csp?HLOC=AMIMC&amp;COUNT=25f2I45z00&amp;Kor=1">
+                                설문조사</a></li>
+                            <li><a href="/AMIMC/community/view.csp?sccode=newsletter&amp;HLOC=AMIMC&amp;COUNT=25f2I45z00&amp;Kor=1">
+                                뉴스레터</a></li>
+                            <!-- 2016.12.16 HSH 기관요청으로 포스터자료실 추가
+                                2016.12.27 HSH 기관요청으로 메디컬 일러스트 추가 -->
+                            <li><a href="/AMIMC/Etc/poster/PosterInfo.csp">
+                                포스터 자료실</a></li>
+                            <li class="last"><a href="/AMIMC/Etc/Medicalillustration.csp">
+                                메디컬 일러스트</a></li>
+                            <!--
+                            <li><a href="/AMIMC/community/sc.csp?sccode=notice&HLOC=AMIMC&COUNT=25f2I45z00&Kor=1">
+                            전체공지사항</a></li>
+                            <li><a href="/AMIMC/community/sc.csp?sccode=faq&HLOC=AMIMC&COUNT=25f2I45z00&Kor=1">
+                            자주하는 질문</a></li>
+                            <li><a href="/AMIMC/community/sc.csp?sccode=qna&HLOC=AMIMC&COUNT=25f2I45z00&Kor=1">
+                            묻고답하기</a></li>
+                            <li><a href="/AMIMC/community/sc.csp?sccode=dataroom&HLOC=AMIMC&COUNT=25f2I45z00&Kor=1">
+                            자료실</a></li>
+                            <li><a href="/AMIMC/community/sc.csp?sccode=review&HLOC=AMIMC&COUNT=25f2I45z00&Kor=1">
+                            서평쓰기</a></li>
+                            <li><a href="/AMIMC/Common/PollNew/PollList.csp?HLOC=AMIMC&COUNT=25f2I45z00&Kor=1">
+                            설문조사</a></li>
+                            <li><a style="color:#ea6738;" href="/AMIMC/community/skin/book/lose/IntroLose.csp?HLOC=AMIMC&COUNT=25f2I45z00&Kor=1">
+                            소재불명도서신고</a></li>
+                            <li><a style="color:#ea6738;" href="/AMIMC/community/skin/book/delivery/IntroDelivery.csp?HLOC=AMIMC&COUNT=25f2I45z00&Kor=1">
+                            도서배달서비스</a></li>
+                            <li><a style="color:#ea6738;" href="/AMIMC/community/skin/slimaplus/locker/IntroLocker.csp?HLOC=AMIMC&COUNT=25f2I45z00&Kor=1">
+                            사물함신청</a></li>
+                            <li><a style="color:#ea6738;" href="/AMIMC/Common/LibQNA/QNAMore.csp?HLOC=AMIMC&COUNT=25f2I45z00&Kor=1">
+                            사서에게 물어보기</a></li>
+                            <li><a style="color:#ea6738;" href="/AMIMC/community/sc.csp?sccode=photo&HLOC=AMIMC&COUNT=25f2I45z00&Kor=1">
+                            포토갤러리</a></li>
+                            <li class='last'><a href="/AMIMC/Etc/banner.csp?HLOC=AMIMC&COUNT=25f2I45z00&Kor=1">
+                            배너</a></li>
+                            -->
+
+
+                        </ul>
+
+                        <ul id="menu_sub4">
+
+                            <li><a href="/AMIMC/Info/Intro/LibraryGuide.csp?HLOC=AMIMC&amp;COUNT=25f2I45z00&amp;Kor=1">
+                                센터 이용안내</a></li>
+                            <li class="last"><a href="/AMIMC/Info/Intro/ServiceGuide.csp?HLOC=AMIMC&amp;COUNT=25f2I45z00&amp;Kor=1">
+                                제공서비스 안내</a></li>
+                            <!-- 사용하지 않는 메뉴입니다.
+                            <li><a href="/AMIMC/MyPage/Email/ETitleIntro.csp?HLOC=AMIMC&COUNT=25f2I45z00&Kor=1">
+                            목차서비스</a></li>
+                            <li><a style="color:#ea6738;" href="/AMIMC/Request/Thesis/TMain.csp?HLOC=AMIMC&COUNT=25f2I45z00&Kor=1">
+                            학위논문등록</a></li>
+                            <li><a style="color:#ea6738;" href="/AMIMC/Request/Perusal/PrsIntro.csp?HLOC=AMIMC&COUNT=25f2I45z00&Kor=1">
+                            타교열람의뢰</a></li>
+                            <li><a style="color:#ea6738;" href="/AMIMC/Request/Educate/EdMain.csp?HLOC=AMIMC&COUNT=25f2I45z00&Kor=1">
+                            이용자 교육신청</a></li>
+                            <li><a style="color:#ea6738;" href="/AMIMC/community/skin/book/priority/IntroPriority.csp?HLOC=AMIMC&COUNT=25f2I45z00&Kor=1">
+                            우선정리요청</a></li>
+                            <li><a style="color:#ea6738;" href="/AMIMC/MyPage/TableRv/TbRvReport.csp?HLOC=AMIMC&COUNT=25f2I45z00&Kor=1">
+                            디지털자료실 예약</a></li>
+                            <li><a style="color:#ea6738;" href="/AMIMC/Request/Room/RmMWD.csp?Gate=3&HLOC=AMIMC&COUNT=25f2I45z00&Kor=1">
+                            세미나실 이용신청</a></li>
+                            <li class='last'><a href="/AMIMC/rss/Service/InfoRss.csp?HLOC=AMIMC&COUNT=25f2I45z00&Kor=1">
+                            RSS서비스</a></li>
+                            -->
+
+
+                        </ul>
+
+                        <ul id="menu_sub5">
+
+                            <li><a href="/AMIMC/Info/Intro/Generalstatus.csp?HLOC=AMIMC&amp;COUNT=25f2I45z00&amp;Kor=1">
+                                일반현황</a></li>
+                            <li><a href="/AMIMC/Info/Intro/Intro.csp?HLOC=AMIMC&amp;COUNT=25f2I45z00&amp;Kor=1">
+                                연혁</a></li>
+                            <li><a href="/AMIMC/Info/Intro/Intro3.csp?HLOC=AMIMC&amp;COUNT=25f2I45z00&amp;Kor=1">
+                                조직도 / 담당자 안내</a></li>
+                            <li class="last"><a href="/AMIMC/Info/Intro/Intro4.csp?HLOC=AMIMC&amp;COUNT=25f2I45z00&amp;Kor=1">
+                                찾아오시는 길</a></li>
+
+
+                        </ul>
+
+                        <div class="btn_top" onclick="ShowHide_Layer('header_menu_sub')">
+                            <img src="/AMIMC/Images/kr/Main/btn_top.png" alt="위로"><p></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- header_menu_sub 끝 ==================================================================== -->
+
+
+            <!--<script src="http://code.jquery.com/jquery-latest.js"></script>-->
+            <!--<script language="javascript" type="text/javascript" src="#( $G(BasicDir) )#/share/js/plus_Common.js?20090507" charset="utf-8"></script>-->
+
+            <script type="text/javascript" language="javascript">
+                // 헤더 메뉴
+                $(document).ready(function() {
+                    $('#header_menu').mouseover(function(){
+                        $('#header_sub').show();
+                        $('#header_menu_sub').show();
+                    });
+
+                    $('#header').mouseleave(function(){
+                        $('#header_sub').hide();
+                        //$('#header_menu_sub').hide();
+                    });
+
+                    $('#header_sub').hide();
+
+                });
+            </script>
+
+
+        </div>
+        <!-- header 끝 =========================================================================================================-->
+
+        <hr>
+
+        <!-- main 시작 ==================================================================================== -->
+        <div id="main">
+
+            <!-- main_top 시작 ==================================================================================== -->
+            <div id="main_top">
+
+
+                <!-- 빠른검색 시작 ============================================ -->
+                <div id="quick_search">
+                    <div id="TabmenuEDS01">
+                        <ul class="title">
+                            <li><img src="/AMIMC/Images/kr/Main/search_tab2_off.png" alt="통합검색" onclick="MM_showHideLayers('TabmenuEDS01','','hide','TabmenuEDS02','','show','TabmenuEDS03','','hide','TabmenuEDS04','','hide')" style="cursor: pointer;"></li>
+                            <li><img src="/AMIMC/Images/kr/Main/search_tab1_over.png" alt="소장자료검색" style="cursor: pointer;"></li>
+                        </ul>
+
+                        <!--1. 소장검색 -->
+                        <div class="tab_bg">
+                            <ul style="clear:both; ">
+                                <form type="text" name="SearchQ" method="get" action="/AMIMC/Search/SearchListT.csp" onsubmit="return DataSearchQ();">
+
+
+                                    <input type="hidden" name="HLOC" value="AMIMC">
+                                    <input type="hidden" name="COUNT" value="25f2I45z00">
+                                    <input type="hidden" name="Kor" value="1">
+                                    <input type="hidden" name="New" value="C0">
+                                    <input type="hidden" name="SrchCondi01" value="▲">
+                                    <input type="hidden" name="QSrchType01" value="">
+
+
+                                    <li>
+                                        <div class="area">
+                                            <a id="sType" style="width:98px; height: 41px;" href="javascript:ShowHide_Layer('selOpenClose')"></a>
+                                            <ul id="selOpenClose" class="area-list" style="display: none;">
+                                                <li class="item01"><a href="#link" onclick="changeSearchCate('T0');" onkeypress="changeSearchCate('T0');">서 &nbsp; 명</a></li>
+                                                <li class="item02"><a href="#link" onclick="changeSearchCate('A0');" onkeypress="changeSearchCate('A0');">저자명</a></li>
+                                                <li class="item03"><a href="#link" onclick="changeSearchCate('P0');" onkeypress="changeSearchCate('P0',1);">출판사명</a></li>
+                                            </ul>
+                                        </div>
+                                        <label>
+                                            <input type="text" id="SrchKey" name="SrchKey01" value="검색어를 입력하세요!" onfocus="if(this.value=='검색어를 입력하세요!')this.value='';" onblur="if(this.value=='')this.value='검색어를 입력하세요!';" code="" maxlength="100" style=" ime-mode:active; hcet-mode:rim; width: 395px; border: 0 none ">
+                                            <input type="hidden" name="SrchType01" id="SrchType01" value="T0">
+                                            <input class="search_btn" type="image" src="/AMIMC/Images/kr/Main/btn_search.png" alt="검색" align="absmiddle">
+                                        </label>
+                                    </li>
+
+                                    <div id="SrchListTitle" style="display:none; ">검색어 자동완성</div>
+                                    <div id="SrchList" style="display:none;"></div>
+                                </form>
+                            </ul>
+                        </div>
+                        <!--1. 소장검색 끝 -->
+                    </div>
+
+                    <hr>
+
+                    <div id="TabmenuEDS02">
+                        <ul class="title">
+                            <li><img src="/AMIMC/Images/kr/Main/search_tab2_over.png" alt="통합검색" style="cursor: pointer;"></li>
+                            <li><img src="/AMIMC/Images/kr/Main/search_tab1_off.png" alt="소장자료검색" onclick="MM_showHideLayers('TabmenuEDS01','','show','TabmenuEDS02','','hide','TabmenuEDS03','','hide','TabmenuEDS04','','hide')" style="cursor: pointer;"></li>
+                        </ul>
+
+                        <div class="tab_bg">
+                            <!--2. 통합검색 -->
+                            <ul style="clear:both; margin: 5px 0 0 0;">
+                                <form id="PubSearch" type="text" name="PubSearch" method="post" onsubmit="return PubmedSearch('search');">
+
+
+                                    <input type="submit" style="display:none;">
+                                    <div class="search">
+                                        <!-- 검색 창 설정 -->
+                                        <input type="text" name="term" id="term" value="" class="type-text" title="검색어 입력">
+                                    </div>
+                                    <div class="btn-search">
+                                        <input class="search_btn2" type="image" src="/AMIMC/Images/kr/Main/btn_search.png" alt="검색" align="absmiddle">
+                                    </div>
+                                </form>
+                            </ul>
+                        </div>
+                        <!--2. 통합검색 끝 -->
+                    </div>
+
+                </div>
+
+                <!-- 빠른검색 끝    ============================================ -->
+
+            </div>
+            <!-- main_top 끝    ==================================================================================== -->
+
+
+            <!-- main_center 시작 ==================================================================================== -->
+            <div id="main_center">
+                <div id="main_center_in">
+
+                    <!-- 퀵메뉴_box 시작 ================================================ -->
+                    <div id="quick_menu">
+                        <h2>빠른서비스</h2>
+                        <ul>
+                            <a href="/AMIMC/Request/FullText/CopysIntro.csp?HLOC=AMIMC&amp;COUNT=25f2I45z00&amp;Kor=1"><li><img src="/AMIMC/Images/kr/Main/quick_menu_box_01.png" alt="원문복사신청"><span class="q_text">원문복사신청</span></li></a>
+                            <a href="/AMIMC/community/skin/default/thesisproofapply/ThesisproofapplyIntro.csp"><li><img src="/AMIMC/Images/kr/Main/quick_menu_box_02.png" alt="논문교정신청"><span class="q_text">논문교정신청</span></li></a>
+                            <a href="/AMIMC/Request/Purchase/PurchaseIntro.csp?HLOC=AMIMC&amp;COUNT=25f2I45z00&amp;Kor=1"><li><img src="/AMIMC/Images/kr/Main/quick_menu_box_03.png" alt="도서구입신청"><span class="q_text">도서구입신청</span></li></a>
+                            <a href="/AMIMC/MyPage/Lend/LnReport.csp?HLOC=AMIMC&amp;COUNT=25f2I45z00&amp;Kor=1"><li class="lett"><img src="/AMIMC/Images/kr/Main/quick_menu_box_04.png" alt="대출현황조회/갱신"><span class="q_text">대출현황조회/갱신</span></li></a>
+                            <a href="/AMIMC/community/view.csp?sccode=newsletter&amp;HLOC=AMIMC&amp;COUNT=25f2I45z00&amp;Kor=1"><li class="none"><img src="/AMIMC/Images/kr/Main/quick_menu_box_05.png" alt="뉴스레터"><span class="q_text">뉴스레터</span></li></a>
+                        </ul>
+                    </div>
+                    <!-- 퀵메뉴_box  끝    =============================================== -->
+
+
+                    <!-- 퀵메뉴 시작 ================================================ -->
+                    <div id="info_menu">
+                        <h2>전자정보서비스</h2>
+                        <ul class="info_ul">
+                            <a href="/AMIMC/BrowseList/ListEJ/ListEJListNew.csp?HLOC=AMIMC&amp;COUNT=25f2I45z00&amp;Kor=1"><li class="info_ul01"></li></a>
+                            <a href="/AMIMC/BrowseList/ListSubj/ListKorABC.csp?Gate=DDC-4&amp;HLOC=AMIMC&amp;COUNT=25f2I45z00&amp;Kor=1"><li class="info_ul02"></li></a>
+                            <a href="/AMIMC/BrowseList/ListDB/ListDBpub.csp?HLOC=AMIMC&amp;COUNT=25f2I45z00&amp;Kor=1"><li class="info_ul03"></li></a>
+                        </ul>
+                    </div>
+                    <!-- 퀵메뉴 끝    =============================================== -->
+
+
+
+                    <!-- 공지사항 시작  ============================================ -->
+                    <div id="tabgroup">
+
+                        <!-- 공지사항 -->
+                        <h2 class="tabtit1">공지사항</h2>
+                        <div id="list01">
+                            <p class="plus"><a href="/AMIMC/community/sc.csp?sccode=notice&amp;HLOC=AMIMC&amp;COUNT=25f2I45z00&amp;Kor=1"><img src="/AMIMC/Images/kr/Main/more.gif" alt="더보기"></a></p>
+                            <ul class="list">
+
+
+
+                                <!-- 리스트 해드  include -->
+
+
+                                <script type="text/javascript" language="JavaScript">
+                                    <!--
+                                    function go_viewPagenotice(sckey) {
+                                        document.scnotice.scKey.value=sckey;
+                                        document.scnotice.submit();
+                                    }
+                                    -->
+                                </script>
+
+
+                                <form name="scnotice" method="get" action="/AMIMC/community/view.csp">
+
+                                    <input type="hidden" name="sccode" value="notice">
+                                    <input type="hidden" name="scPageNo" value="1">
+
+
+                                    <input type="hidden" name="HLOC" value="AMIMC">
+                                    <input type="hidden" name="COUNT" value="25f2I45z00">
+                                    <input type="hidden" name="Kor" value="1">
+                                    <input type="hidden" name="scKey" value="">
+                                    <input type="submit" style="display:none;">
+                                </form>
+
+                                <ul>
+
+                                    <!-- 리스트 메인  include -->
+
+
+
+                                    <li>
+                                        <a href="#link" onclick="javascript:go_viewPagenotice('531');">ASM 출판사 전자저널 일시적인 ..</a> <img src="/AMIMC/community/skin/default/notice/images/new.gif" alt="new">  <span class="date">[2018-01-10]</span>
+                                    </li>
+
+                                    <li>
+                                        <a href="#link" onclick="javascript:go_viewPagenotice('530');">방학 기간 중 (1-2월) 개관 ..</a>  <span class="date">[2018-01-02]</span>
+                                    </li>
+
+                                    <li>
+                                        <a href="#link" onclick="javascript:go_viewPagenotice('529');">모바일 학생증 이용안내</a>  <span class="date">[2018-01-02]</span>
+                                    </li>
+
+                                    <!-- 리스트 풋  include -->
+
+
+                                </ul>
+
+
+                            </ul>
+                        </div>
+
+                        <!--  탭추가시 사용
+                        <script type="text/javascript">tabList('tabgroup', 0);</script>-->
+                    </div>
+
+                    <!-- 공지사항 끝     ============================================ -->
+
+
+
+                    <!-- 주요데이터베이스 시작 ================================================ -->
+                    <div id="database">
+                        <h2>주요 데이터베이스</h2>
+                        <ul>
+                            <a href="/AMIMC/Login/sso/LoginProxySSO.csp?goURL=http://www.ncbi.nlm.nih.gov/entrez/query.fcgi?otool=ikrajoulib" target="_blank"><li>PUBMED</li></a>
+                            <a href="/AMIMC/Login/sso/LoginProxySSO.csp?goURL=http://www.scopus.com/" target="_blank"><li>SCOPUS </li></a>
+                            <a href="/AMIMC/Login/sso/LoginProxySSO.csp?goURL=https://www.clinicalkey.com/" target="_blank"><li>CLINICAL KEY</li></a>
+                            <a href="/AMIMC/Login/sso/LoginProxySSO.csp?goURL=rzh" target="_blank"><li>CINAHL</li></a>
+                            <a href="http://www.uptodate.com/contents/search" target="_blank"><li>UPTODATE</li></a>
+                            <a href="/AMIMC/Login/sso/LoginProxySSO.csp?goURL=http://accessmedicine.mhmedical.com/book.aspx?bookid=1130" target="_blank"><li class="lett">HARRISON'S ONLINE</li></a>
+                        </ul>
+                    </div>
+                    <!-- 주요데이터베이스 끝    =============================================== -->
+
+
+
+                    <!-- 아주대학교이미지 시작  ============================================ -->
+                    <div class="ajou_img">
+                        <img src="/AMIMC/Images/kr/Main/ajou_img.png" alt="이미지">
+                    </div>
+                    <!-- 아주대학교이미지 끝     ============================================ -->
+
+
+
+
+                </div>
+            </div>
+            <!-- main_center 끝    ==================================================================================== -->
+
+
+            <!-- main_bottom 시작 ==================================================================================== -->
+            <div id="main_bottom">
+                <div id="main_bottom_in">
+
+                    <!-- 배너 시작   =========================================  -->
+                    <div id="banner_link">
+                        <div id="DropHit" class="rolling_bannerBg">
+                            <!-- 첫번째 배너 리스트 -->
+                            <ul>
+                                <li><a href="#" onclick="javascript:alert('로그인 후 이용해주시기 바랍니다.'); window.location.href='/AMIMC/Login/Login.csp';"><img src="/AMIMC/Images/kr/Banner/banner_endnote.gif" align="absmiddle" alt="endnote"></a></li>
+
+                                <li><a href="http://api.turnitin.com/ko/login" target="_blank"><img src="/AMIMC/Images/kr/Banner/banner_turnitin.gif" align="absmiddle" alt="turnitin"></a></li>
+                                <!--2016.01.21 / 주석처리 / kaa
+                                <li><a href="http://libguides.ajou.ac.kr/" target="_blank"><img src="#(ImgDirLang)#/Banner/banner_informationservices.gif" align="absmiddle" alt="주제별서비스" /></a></li>-->
+                                <li><a href="http://repository.ajou.ac.kr/" target="_blank"><img src="/AMIMC/Images/kr/Banner/banner_ajou.gif" align="absmiddle" alt="AJOU"></a></li>
+                                <!--2016.01.21 / 추가 / kaa-->
+                                <!--2016.06.20 / 링크수정 / kaa
+                                <li><a href="#(BasicDir)#/Login/sso/LoginProxySSO.csp?goURL=http://webofknowledge.com/JCR" target="_blank"><img src="#(ImgDirLang)#/Banner/banner_JournalCitationReports.gif" align="absmiddle" alt="Journal Citation Reports는 Database" /></a></li>-->
+                                <li><a href="/AMIMC/Login/sso/LoginProxySSO.csp?goURL=https://jcr.incites.thomsonreuters.com" target="_blank"><img src="/AMIMC/Images/kr/Banner/banner_JournalCitationReports.gif" align="absmiddle" alt="Journal Citation Reports는 Database"></a></li>
+                                <li><a href="/AMIMC/Login/sso/LoginProxySSO.csp?goURL=http://medcalc.ajoumc.or.kr/" target="_blank"><img src="/AMIMC/Images/kr/Banner/banner_medcalc.gif" align="absmiddle" alt="MedCalc"></a></li>
+                            </ul>
+
+                        </div>
+                        <!-- 배너추가시 사용!!
+                        <ul class="directbtn">
+                            <li class="aa"><a href="#link" onClick="hotKeyword.prev();"><img src="#(ImgDirLang)#/Main/scroll_up.gif" alt="위로" /></a></li>
+                            <li class="aa"><a href="#link" onClick="hotKeyword.next();"><img src="#(ImgDirLang)#/Main/scroll_down.gif" alt="아래로" /></a></li>
+                        </ul>-->
+                    </div>
+
+                    <!-- 배너 끝     ========================================= -->
+
+                </div>
+            </div>
+            <!-- main_bottom 끝 ==================================================================================== -->
+
+
+
+
+        </div>
+        <!-- main 끝   ==================================================================================== -->
+        <hr>
+
+        <!-- footer 시작 ========================================================================================================= -->
+        <div id="footer">
+
+            <div class="footer_in">
+                <div class="copyright_btn">
+                    <ul>
+                        <li class="none"><a href="#" onclick="javascript:window.open('/AMIMC/Etc/Privacy.csp', 'Privacy', 'width=580,height=490,scrollbars=yes');">개인정보처리방침　|</a></li>
+                        <li><a href="#" onclick="javascript:window.open('/AMIMC/Etc/NoSpam.csp', 'NoSpam', 'width=580,height=490,scrollbars=yes');">이메일무단수집거부</a></li>
+                    </ul>
+                </div>
+
+                <div class="copyright">
+                    16499 경기도 수원시 영통구 월드컵로 164 <strong>아주대학교 의학문헌정보센터</strong>   / TEL : 031-219-5312 / FAX : 031-219-5314 <br>Copyright (c) 아주대학교 의학문헌정보센터 All Rights Reserved.
+
+                </div>
+
+                <div class="copyright_qr">
+                    <ul>
+                        <!--<li>Mobile</li>
+                        <li>QR코드</li>-->
+                        <li><img src="/AMIMC/Images/kr/TMenu/QRImageAU.png" style="top: 12px; right: 5px; position: absolute;" alt="QR코드"></li>
+                    </ul>
+                </div>
+
+
+
+
+            </div>
+
+        </div>
+        <!-- footer 끝 =========================================================================================================== -->
+
+
+        <script language="JavaScript" type="text/JavaScript">
+            <!--
+
+            -->
+        </script>
+
+    </div>
+
+    <!-- body_wrap 끝 =========================================================================================================== -->
+
+</csp:class></body></html></frame>
+</frameset>
 </html>
